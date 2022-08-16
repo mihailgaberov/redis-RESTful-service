@@ -57,3 +57,12 @@ router.post("/:id", async (req, res) => {
   // return the id of the Song we just saved
   res.send({ id });
 });
+
+router.delete("/:id", async (req, res) => {
+  // delete the Song with its id
+  await repository.remove(req.params.id);
+
+  // respond with OK
+  res.type("application/json");
+  res.send("OK");
+});
