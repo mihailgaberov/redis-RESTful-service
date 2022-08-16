@@ -32,11 +32,6 @@ router.get("/:id", async (req, res) => {
   res.send(song);
 });
 
-router.get("/", async (req, res) => {
-  let songs = await repository.search().returnAll();
-  res.send(songs);
-});
-
 router.post("/:id", async (req, res) => {
   // fetch the Song we are replacing
   let song = await repository.fetch(req.params.id);
